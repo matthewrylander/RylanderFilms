@@ -49,11 +49,12 @@ a:hover .arrow, button:hover .arrow { transform: translate(3px, -2px); }
 /* Header and hero */
 .site-header { position: fixed; z-index: 20; top: 0; left: 0; display: flex; width: 100%; height: 108px; align-items: center; justify-content: space-between; padding: 0 max(56px, calc((100vw - 1280px) / 2)); border-bottom: 1px solid rgba(255,255,255,.13); background: rgba(17,17,15,.22); backdrop-filter: blur(8px); transition: height .3s ease, background .3s ease; }
 .site-header.is-compact { height: 76px; background: rgba(17,17,15,.84); }
-.wordmark { display: inline-flex; align-items: center; gap: 10px; }
+.wordmark { display: inline-flex; align-items: center; gap: 18px; }
 .wordmark-logo { display: block; width: 72px; height: 72px; flex: 0 0 72px; overflow: hidden; border: 0; border-radius: 50%; object-fit: cover; transition: width .3s ease, height .3s ease, flex-basis .3s ease; }
 .site-header.is-compact .wordmark-logo { width: 46px; height: 46px; flex-basis: 46px; }
-.wordmark-copy { font-size: 11px; font-weight: 600; letter-spacing: .17em; line-height: 1.35; transition: font-size .3s ease; }
-.site-header.is-compact .wordmark-copy { font-size: 9px; }
+.wordmark-copy { display: flex; align-items: center; gap: 7px; font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: .08em; line-height: 1.25; transition: font-size .3s ease, gap .3s ease; }
+.wordmark-copy.is-stacked { flex-direction: column; align-items: flex-start; gap: 0; }
+.site-header.is-compact .wordmark-copy { font-size: 12px; }
 .main-nav { display: flex; align-items: center; gap: 37px; }
 .main-nav > a { color: rgba(242,240,233,.85); font-size: 10px; transition: color .2s; }
 .main-nav > a:hover { color: var(--amber); }
@@ -62,7 +63,7 @@ a:hover .arrow, button:hover .arrow { transform: translate(3px, -2px); }
 .menu-toggle { display: none; }
 .hero { position: relative; display: flex; min-height: min(840px, 100svh); min-height: max(680px, 100svh); align-items: center; overflow: hidden; }
 .hero-image, .hero-shade { position: absolute; inset: 0; }
-.hero-image { background-image: url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2200&q=85'); background-position: center 53%; background-size: cover; transform: scale(1.02); }
+.hero-image { background-image: url('../images/beachhomepage.png'); background-position: center 53%; background-size: cover; transform: scale(1.02); }
 .hero-shade { background: linear-gradient(90deg, rgba(14,15,14,.9) 0%, rgba(14,15,14,.62) 47%, rgba(14,15,14,.2) 100%), linear-gradient(0deg, rgba(14,15,14,.8) 0%, transparent 32%, rgba(14,15,14,.12) 100%); }
 .hero-content { position: relative; z-index: 1; padding-top: 49px; }
 .hero-content .eyebrow { margin-bottom: 28px; }
@@ -78,6 +79,8 @@ a:hover .arrow, button:hover .arrow { transform: translate(3px, -2px); }
 
 /* Services and portfolio */
 .services-section { background: #e9e7df; color: var(--ink); }
+.services-section.section-pad { padding-top: 52px; padding-bottom: 48px; }
+.services-section .services-heading { margin-bottom: 0; }
 .services-section .eyebrow, .services-section .heading-note { color: #77746d; }
 .services-section .eyebrow-dot { background: #ad7833; }
 .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(17,17,15,.22); border-bottom: 1px solid rgba(17,17,15,.22); }
@@ -239,6 +242,9 @@ a:hover .arrow, button:hover .arrow { transform: translate(3px, -2px); }
   .section-pad { padding-block: 94px; }
   .hero { min-height: 760px; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-section.section-pad { padding-top: 46px; }
+  .services-section.section-pad { padding-bottom: 40px; }
+  .services-section .services-heading { margin-bottom: 0; }
   .service-card { min-height: 224px; padding: 19px; border-bottom: 1px solid rgba(17,17,15,.16); }
   .service-card:first-child { padding-left: 19px; }
   .service-card:nth-child(2) { border-right: 0; }
@@ -258,8 +264,8 @@ a:hover .arrow, button:hover .arrow { transform: translate(3px, -2px); }
   .site-header.is-compact { height: 64px; }
   .wordmark-logo { width: 56px; height: 56px; flex-basis: 56px; }
   .site-header.is-compact .wordmark-logo { width: 38px; height: 38px; flex-basis: 38px; }
-  .wordmark-copy { font-size: 9px; }
-  .site-header.is-compact .wordmark-copy { font-size: 8px; }
+  .wordmark-copy { font-size: 14px; }
+  .site-header.is-compact .wordmark-copy { font-size: 10px; }
   .menu-toggle { z-index: 2; display: flex; width: 38px; height: 38px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; border: 1px solid rgba(242,240,233,.4); background: rgba(17,17,15,.35); }
   .menu-toggle span { display: block; width: 15px; height: 1px; background: var(--paper); }
   .main-nav { position: absolute; top: 85px; right: 0; left: 0; display: flex; max-height: 0; flex-direction: column; align-items: stretch; gap: 0; overflow: hidden; padding: 0 20px; background: rgba(17,17,15,.97); transition: top .3s ease, max-height .3s ease, padding .3s ease; }
@@ -285,6 +291,9 @@ a:hover .arrow, button:hover .arrow { transform: translate(3px, -2px); }
   .section-heading .eyebrow { margin-bottom: 14px; font-size: 8px; }
   .heading-note { font-size: 10px; }
   .services-grid { grid-template-columns: 1fr 1fr; }
+  .services-section.section-pad { padding-top: 36px; }
+  .services-section.section-pad { padding-bottom: 32px; }
+  .services-section .services-heading { margin-bottom: 0; }
   .service-card { min-height: 205px; padding: 15px 12px; }
   .service-card:first-child { padding-left: 12px; }
   .service-card:nth-child(2) { padding-left: 15px; }

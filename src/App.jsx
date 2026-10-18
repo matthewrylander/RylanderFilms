@@ -156,7 +156,10 @@ function App() {
       <header className={`site-header${isHeaderCompact ? ' is-compact' : ''}`}>
         <a className="wordmark" href="#top" aria-label="Rylander Films home" onClick={closeMenu}>
           <img className="wordmark-logo" src="/images/Rylander%20Film%20Co.%20Metallic%20Seal.png" alt="" />
-          <span className="wordmark-copy">RYLANDER<br />FILMS</span>
+          <motion.span layout className={`wordmark-copy${isHeaderCompact ? ' is-stacked' : ''}`}>
+            <motion.span layout>Rylander</motion.span>
+            <motion.span layout>Films</motion.span>
+          </motion.span>
         </a>
         <button className="menu-toggle" aria-expanded={menuOpen} aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} onClick={() => setMenuOpen(!menuOpen)}>
           <span /><span />
@@ -170,7 +173,7 @@ function App() {
       </header>
 
       <section className="hero" id="top" aria-labelledby="hero-title">
-        <div className="hero-image" role="img" aria-label="Sunlight falling across a mountain valley at dawn" />
+        <div className="hero-image" role="img" aria-label="A couple walking along the lakeshore near a lighthouse" />
         <div className="hero-shade" />
         <div className="hero-content page-wrap">
           <Reveal>
@@ -269,7 +272,6 @@ function App() {
         <div className="page-wrap about-layout">
           <Reveal className="about-photo-wrap">
             <img src={photos.portrait} alt="Portrait of the independent filmmaker behind Rylander Films" loading="lazy" />
-            <div className="photo-stamp"><span>INDEPENDENT</span><i>·</i><span>FILMMAKER</span></div>
             <span className="about-photo-index">BEHIND THE LENS — 2025</span>
           </Reveal>
           <Reveal className="about-copy">
@@ -359,7 +361,7 @@ function App() {
           </div>
         </div>
         <div className="page-wrap footer-bottom">
-          <a className="wordmark footer-wordmark" href="#top" aria-label="Rylander Films home"><img className="wordmark-logo" src="/images/Rylander%20Film%20Co.%20Metallic%20Seal.png" alt="" /><span className="wordmark-copy">RYLANDER<br />FILMS</span></a>
+          <a className="wordmark footer-wordmark" href="#top" aria-label="Rylander Films home"><img className="wordmark-logo" src="/images/Rylander%20Film%20Co.%20Metallic%20Seal.png" alt="" /><span className="wordmark-copy is-stacked"><span>RYLANDER</span><span>FILMS</span></span></a>
           <span>WEDDING FILMS & CLIENT STORIES · CHICAGO’S NORTHWEST SUBURBS & BEYOND</span>
           <span>© 2026 RYLANDER FILMS</span>
           <a className="back-top" href="#top">BACK TO TOP ↑</a>
