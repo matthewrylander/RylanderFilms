@@ -4,12 +4,12 @@ import { AnimatePresence, motion } from 'framer-motion'
 const photos = {
   coast: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1100&q=80',
   wedding: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1100&q=80',
-  portrait: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80',
+  portrait: '/images/IMG_3681.JPG',
 }
 
 const projects = [
-  { name: 'A day that felt like you', client: 'Wedding film', type: 'Celebration', image: photos.wedding, position: 'center 58%' },
-  { name: 'The moments between', client: 'Wedding film', type: 'Documentary', image: photos.coast, position: 'center 58%' },
+  { name: 'Grace & Alex Garner 10/10/26', client: 'Wedding film', type: 'Celebration', image: photos.wedding, position: 'center 58%', videoId: '8m2wAzzc4Yw' },
+  { name: 'Coming soon...', client: 'Wedding film', type: 'Documentary', image: photos.coast, position: 'center 58%' },
 ]
 
 const services = [
@@ -48,7 +48,7 @@ const packages = [
     name: 'Essential Memories',
     price: '$1,249',
     description: 'A considered record of the day’s most meaningful moments.',
-    includes: ['Up to 6 hours of wedding day coverage', 'Ceremony and key reception moments', 'Natural, documentary-style filming', '3–5 minute highlight video', 'Professional editing and color grading', 'Digital delivery'],
+    includes: ['Up to 6 hours of wedding day coverage', 'Ceremony and key reception moments', 'Natural, documentary-style filming', '3–5 minute highlight video', 'Professional editing, color grading, and audio mixing', 'Digital delivery'],
     featured: false,
   },
   {
@@ -229,15 +229,29 @@ function App() {
           <div className="work-grid">
             {projects.map((project, index) => (
               <Reveal className={`project-card project-card-${index + 1}`} delay={(index % 2) * 0.1} key={project.name}>
-                <a className="project-image-wrap" href="#contact" aria-label={`Discuss a project like ${project.name}`}>
-                  <img
-                    src={project.image}
-                    alt={`${project.type} film still from ${project.name} — ${project.client}`}
-                    loading="lazy"
-                    style={{ objectPosition: project.position }}
-                  />
-                  <span className="project-open"><Arrow diagonal /></span>
-                </a>
+                {project.videoId ? (
+                  <div className="project-image-wrap project-video-wrap">
+                    <iframe
+                      className="project-video"
+                      src={`https://www.youtube-nocookie.com/embed/${project.videoId}?rel=0`}
+                      title={`${project.name} wedding film`}
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : (
+                  <a className="project-image-wrap" href="#contact" aria-label={`Discuss a project like ${project.name}`}>
+                    <img
+                      src={project.image}
+                      alt={`${project.type} film still from ${project.name} — ${project.client}`}
+                      loading="lazy"
+                      style={{ objectPosition: project.position }}
+                    />
+                    <span className="project-open"><Arrow diagonal /></span>
+                  </a>
+                )}
                 <div className="project-meta">
                   <div><h3>{project.name}</h3><p>{project.client}</p></div>
                   <span>{project.type}</span>
