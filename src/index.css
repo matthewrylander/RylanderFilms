@@ -315,6 +315,7 @@ a:hover .arrow, button:hover .arrow { transform: translate(3px, -2px); }
   .work-grid { grid-template-columns: 1fr; row-gap: 27px; }
   .project-card-2, .project-card-4 { margin-top: 0; }
   .project-image-wrap { aspect-ratio: 1.35 / 1; }
+  .project-video-wrap { aspect-ratio: 16 / 9; }
   .project-meta h3 { font-size: 14px; }
   .work-foot { gap: 15px; flex-direction: column; margin-top: 42px; line-height: 1.6; }
   .filmstrip-section { padding-top: 34px; }
@@ -330,7 +331,7 @@ a:hover .arrow, button:hover .arrow { transform: translate(3px, -2px); }
   .process-step h3 { font-size: 18px; }
   .process-step p { font-size: 9px; }
   .about-layout { grid-template-columns: 1fr; gap: 39px; }
-  .about-photo-wrap { width: 86%; }
+  .about-photo-wrap { width: 86%; margin-inline: auto; }
   .about-copy .eyebrow { font-size: 8px; }
   .about-copy h2 { font-size: 43px; }
   .about-lede { font-size: 13px; }
