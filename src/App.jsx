@@ -23,7 +23,7 @@ const services = [
 
 const process = [
   ['01', 'Before the day', 'We talk through your timeline, the people and moments that matter most, and how to be present without making the day feel like a production.'],
-  ['02', 'On the day', 'A calm, unobtrusive approach lets us capture the real moments as they happen—from getting ready to the dance floor.'],
+  ['02', 'On the day', 'A calm, unobtrusive approach lets us capture the real moments as they happen, from getting ready to the dance floor.'],
   ['03', 'After the day', 'We shape the footage with careful editing, color, and sound, then deliver a film you can revisit and share.'],
 ]
 
@@ -266,7 +266,7 @@ function App() {
                   <a className="project-image-wrap" href="#contact" aria-label={`Discuss a project like ${project.name}`}>
                     <img
                       src={project.image}
-                      alt={`${project.type} film still from ${project.name} — ${project.client}`}
+                      alt={`${project.type} film still from ${project.name}, ${project.client}`}
                       loading="lazy"
                       style={{ objectPosition: project.position }}
                     />
@@ -311,14 +311,14 @@ function App() {
         <div className="page-wrap about-layout">
           <Reveal className="about-photo-wrap">
             <img src={photos.portrait} alt="Portrait of the independent filmmaker behind Rylander Films" loading="lazy" />
-            <span className="about-photo-index">BEHIND THE LENS — 2025</span>
+            <span className="about-photo-index">BEHIND THE LENS | 2025</span>
           </Reveal>
           <Reveal className="about-copy">
             <p className="eyebrow"><span className="eyebrow-dot" /> DIRECT COLLABORATION</p>
             <h2>Film made<br /><em>with purpose.</em></h2>
             <p className="about-lede">I’m Matt Rylander, an independent filmmaker based in Chicago’s Northwest suburbs. I work directly with each client from the first conversation through final delivery.</p>
             <p className="about-detail about-detail-expanded">For weddings, I take a documentary approach, capturing the day as it happens without staging every moment. I handle filming and editing myself. I also create films for businesses and organizations, helping shape a clear story and deliver a polished final piece.</p>
-            <span className="signature">Matt Rylander <span>— FILMMAKER</span></span>
+            <span className="signature">Matt Rylander <span>| FILMMAKER</span></span>
           </Reveal>
         </div>
       </section>
