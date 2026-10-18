@@ -384,6 +384,7 @@ function App() {
           <Reveal className="footer-callout">
             <p className="eyebrow"><span className="eyebrow-dot" /> GETTING MARRIED OR HAVE A STORY TO TELL?</p>
             <h2>Let’s make it<br /><em>memorable.</em></h2>
+            {/*
             <div className="footer-social">
               <span className="footer-label">FIND US</span>
               <div>
@@ -392,6 +393,7 @@ function App() {
                 <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">YouTube <Arrow diagonal /></a>
               </div>
             </div>
+            */}
           </Reveal>
           <div className="footer-contact">
             <ContactForm />
