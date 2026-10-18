@@ -50,4 +50,4 @@ Once configured, push a commit to `main` or manually run **Deploy to Firebase Ho
 
 The workflow explicitly obtains an OAuth access token and verifies Google Cloud ADC before invoking Firebase CLI. If the verification step fails, check that the identity provider condition matches `matthewrylander/RylanderFilms` and that the `roles/iam.workloadIdentityUser` binding uses the same repository principal. If credential verification passes but deployment fails, confirm the service account has `roles/firebasehosting.admin` and that Firebase Hosting is enabled.
 
-The Hosting configuration in `firebase.json` serves the Vite build and rewrites application routes to `index.html`. No Google Cloud service-account private key or GitHub credential secret is needed.
+The Hosting configuration in `firebase.json` serves the Vite build from `dist/` and rewrites application routes to `index.html`. No Google Cloud service-account private key or GitHub credential secret is needed.
