@@ -30,10 +30,23 @@ jobs:
         run: npm run build
 
       - name: Authenticate to Google Cloud
+        id: auth
         uses: google-github-actions/auth@v2
         with:
           workload_identity_provider: projects/945514403008/locations/global/workloadIdentityPools/github-pool/providers/github-provider
           service_account: firebase-adminsdk-fbsvc@rylanderfilms.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/cloud-platform
+
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: rylanderfilms
+
+      - name: Verify federated credentials
+        run: gcloud auth print-access-token > /dev/null
 
       - name: Deploy to Firebase Hosting
-        run: npx --yes firebase-tools deploy --only hosting --project rylanderfilms --non-interactive
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
+        run: npx --yes firebase-tools deploy --only hosting --project rylanderfilms --non-interactive --debug

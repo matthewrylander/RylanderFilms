@@ -8,10 +8,10 @@ The workflow uses GitHub Actions OIDC and Google Cloud Workload Identity Federat
 
 Run these commands with `gcloud` authenticated as an administrator of the `rylanderfilms` project. The project number is `945514403008`.
 
-Enable the federation APIs:
+Enable the federation and Hosting APIs:
 
 ```sh
-gcloud services enable iamcredentials.googleapis.com sts.googleapis.com --project=rylanderfilms
+gcloud services enable iamcredentials.googleapis.com sts.googleapis.com firebasehosting.googleapis.com --project=rylanderfilms
 ```
 
 Create the Workload Identity Pool and GitHub OIDC provider. The provider condition restricts impersonation to this repository:
@@ -47,5 +47,7 @@ gcloud projects add-iam-policy-binding rylanderfilms \
 ```
 
 Once configured, push a commit to `main` or manually run **Deploy to Firebase Hosting** in **Actions**. The workflow installs from `package-lock.json`, builds the site into `dist/`, authenticates through OIDC, and deploys Hosting to project `rylanderfilms`.
+
+The workflow explicitly obtains an OAuth access token and verifies Google Cloud ADC before invoking Firebase CLI. If the verification step fails, check that the identity provider condition matches `matthewrylander/RylanderFilms` and that the `roles/iam.workloadIdentityUser` binding uses the same repository principal. If credential verification passes but deployment fails, confirm the service account has `roles/firebasehosting.admin` and that Firebase Hosting is enabled.
 
 The Hosting configuration in `firebase.json` serves the Vite build and rewrites application routes to `index.html`. No Google Cloud service-account private key or GitHub credential secret is needed.
