@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import portraitImage from '../images/IMG_3681.JPG'
+import logoImage from '../images/Rylander Film Co. Metallic Seal.png'
 
 const photos = {
   coast: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1100&q=80',
   wedding: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1100&q=80',
-  portrait: '/images/IMG_3681.JPG',
+  portrait: portraitImage,
 }
 
 const projects = [
@@ -158,7 +160,7 @@ function App() {
     <main className="overflow-x-hidden bg-ink text-paper">
       <header className={`site-header${isHeaderCompact ? ' is-compact' : ''}`}>
         <a className="wordmark" href="#top" aria-label="Rylander Films home" onClick={closeMenu}>
-          <img className="wordmark-logo" src="/images/Rylander%20Film%20Co.%20Metallic%20Seal.png" alt="" />
+          <img className="wordmark-logo" src={logoImage} alt="" />
           <motion.span layout className={`wordmark-copy${isHeaderCompact ? ' is-stacked' : ''}`}>
             <motion.span layout>Rylander</motion.span>
             <motion.span layout>Films</motion.span>
@@ -380,7 +382,7 @@ function App() {
           </div>
         </div>
         <div className="page-wrap footer-bottom">
-          <a className="wordmark footer-wordmark" href="#top" aria-label="Rylander Films home"><img className="wordmark-logo" src="/images/Rylander%20Film%20Co.%20Metallic%20Seal.png" alt="" /><span className="wordmark-copy is-stacked"><span>RYLANDER</span><span>FILMS</span></span></a>
+          <a className="wordmark footer-wordmark" href="#top" aria-label="Rylander Films home"><img className="wordmark-logo" src={logoImage} alt="" /><span className="wordmark-copy is-stacked"><span>RYLANDER</span><span>FILMS</span></span></a>
           <span>WEDDING FILMS & CLIENT STORIES · CHICAGO’S NORTHWEST SUBURBS & BEYOND</span>
           <span>© 2026 RYLANDER FILMS</span>
           <a className="back-top" href="#top">BACK TO TOP ↑</a>
