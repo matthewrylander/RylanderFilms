@@ -46,18 +46,21 @@ const studioNotes = [
 const packages = [
   {
     name: 'Essential Memories',
+    price: '$1,249',
     description: 'A considered record of the day’s most meaningful moments.',
     includes: ['Up to 6 hours of wedding day coverage', 'Ceremony and key reception moments', 'Natural, documentary-style filming', '3–5 minute highlight video', 'Professional editing and color grading', 'Digital delivery'],
     featured: false,
   },
   {
     name: 'Full Story',
+    price: '$1,499',
     description: 'More room for the story to unfold, from getting ready to the reception.',
     includes: ['Up to 8 hours of wedding day coverage', 'Getting ready, ceremony, and reception coverage', 'Drone footage of the venue and surrounding area, weather permitting', '5–7 minute highlight film', 'Professional editing, color grading, and audio mixing', 'Digital delivery'],
     featured: true,
   },
   {
     name: 'Complete Wedding Film',
+    price: '$1,749',
     description: 'An extended record of the day, with the words and moments preserved in full.',
     includes: ['Up to 10 hours of wedding day coverage', 'Coverage from getting ready through the major reception events', 'Drone footage, weather permitting', '6–10 minute wedding film', 'Full ceremony edit', 'Full speeches/toasts edit', 'Professional editing, color grading, and audio mixing', 'Digital delivery'],
     featured: false,
@@ -168,6 +171,7 @@ function App() {
           <a href="#work" onClick={closeMenu}>Work</a>
           <a href="#about" onClick={closeMenu}>About</a>
           <a href="#services" onClick={closeMenu}>Services</a>
+          <a href="#pricing" onClick={closeMenu}>Pricing</a>
           <a className="nav-contact" href="#contact" onClick={closeMenu}>Get in touch <Arrow diagonal /></a>
         </nav>
       </header>
@@ -278,7 +282,7 @@ function App() {
             <p className="eyebrow"><span className="eyebrow-dot" /> DIRECT COLLABORATION</p>
             <h2>Film made<br /><em>with purpose.</em></h2>
             <p className="about-lede">I’m Matt Rylander, an independent filmmaker based in Chicago’s Northwest suburbs. I work directly with each client from the first conversation through final delivery.</p>
-            <p className="about-detail">For weddings, I take a documentary approach, capturing the day as it happens without staging every moment. I handle filming and editing myself. I also create films for businesses and organizations, helping shape a clear story and deliver a polished final piece.</p>
+            <p className="about-detail about-detail-expanded">For weddings, I take a documentary approach, capturing the day as it happens without staging every moment. I handle filming and editing myself. I also create films for businesses and organizations, helping shape a clear story and deliver a polished final piece.</p>
             <span className="signature">Matt Rylander <span>— FILMMAKER</span></span>
           </Reveal>
         </div>
@@ -314,7 +318,7 @@ function App() {
         </div>
       </section>
 
-      <section className="investment-section section-pad">
+      <section className="investment-section section-pad" id="pricing">
         <div className="page-wrap">
           <Reveal className="section-heading">
             <div>
@@ -329,6 +333,7 @@ function App() {
                 {tier.featured && <span className="package-badge">A GOOD PLACE TO BEGIN</span>}
                 <span className="package-index">0{index + 1} / WEDDING FILM</span>
                 <h3>{tier.name}</h3>
+                <span className="package-price">{tier.price}</span>
                 <p>{tier.description}</p>
                 <ul>{tier.includes.map((item) => <li key={item}><span>+</span>{item}</li>)}</ul>
                 <a href="#contact" className={tier.featured ? 'button button-light' : 'text-link'}>Let’s talk details <Arrow diagonal /></a>
