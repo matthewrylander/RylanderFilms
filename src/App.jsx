@@ -85,8 +85,27 @@ function Reveal({ children, className = '', delay = 0 }) {
   )
 }
 
-function Arrow({ diagonal = false }) {
-  return <span aria-hidden="true" className="arrow">{diagonal ? '↗' : '→'}</span>
+function Arrow({ diagonal = false, direction = 'right' }) {
+  const paths = diagonal
+    ? <><path d="M4 12 12 4" /><path d="M5 4h7v7" /></>
+    : direction === 'left'
+      ? <><path d="M13 8H3" /><path d="m7 4-4 4 4 4" /></>
+      : direction === 'up'
+        ? <><path d="M8 13V3" /><path d="m4 7 4-4 4 4" /></>
+        : <><path d="M3 8h10" /><path d="m9 4 4 4-4 4" /></>
+
+  return <svg aria-hidden="true" className="arrow" viewBox="0 0 16 16" fill="none">{paths}</svg>
+}
+
+function ServiceMark({ index }) {
+  return (
+    <svg className="service-mark" aria-hidden="true" viewBox="0 0 32 32" fill="none">
+      {index === 0 && <><circle cx="16" cy="16" r="10" /><circle cx="16" cy="16" r="3" /></>}
+      {index === 1 && <><circle cx="16" cy="16" r="10" /><path d="M6 16h20M16 6v20" /></>}
+      {index === 2 && <><path d="M9 23 23 9" /><path d="M11 9h12v12" /></>}
+      {index === 3 && <><path d="M16 4v9m0 6v9M4 16h9m6 0h9M7.5 7.5l6.3 6.3m4.4 4.4 6.3 6.3m0-17-6.3 6.3m-4.4 4.4-6.3 6.3" /></>}
+    </svg>
+  )
 }
 
 function ContactForm() {
@@ -209,7 +228,7 @@ function App() {
             {services.map(([number, title, description], index) => (
               <Reveal className="service-card" delay={index * 0.07} key={number}>
                 <span className="service-number">{number} / 04</span>
-                <span className="service-mark" aria-hidden="true">{['◉', '◌', '↗', '✳'][index]}</span>
+                <ServiceMark index={index} />
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <a href="#contact" aria-label={`Discuss ${title}`}><Arrow diagonal /></a>
@@ -281,7 +300,7 @@ function App() {
               <Reveal className="process-step" delay={index * 0.08} key={number}>
                 <span className="process-number">{number}</span>
                 <div><h3>{title}</h3><p>{description}</p></div>
-                <span className="step-mark" aria-hidden="true">↗</span>
+                <span className="step-mark"><Arrow diagonal /></span>
               </Reveal>
             ))}
           </div>
@@ -310,9 +329,9 @@ function App() {
             <p className="eyebrow"><span className="eyebrow-dot" /> WHAT WE WANT EVERY FILM TO HOLD</p>
             <h2>Made to <em>matter.</em></h2>
             <div className="quote-controls">
-              <button type="button" aria-label="Previous studio note" onClick={() => setActiveQuote((activeQuote + studioNotes.length - 1) % studioNotes.length)}>←</button>
+              <button type="button" aria-label="Previous studio note" onClick={() => setActiveQuote((activeQuote + studioNotes.length - 1) % studioNotes.length)}><Arrow direction="left" /></button>
               <span>0{activeQuote + 1} <i>/</i> 0{studioNotes.length}</span>
-              <button type="button" aria-label="Next studio note" onClick={() => setActiveQuote((activeQuote + 1) % studioNotes.length)}>→</button>
+              <button type="button" aria-label="Next studio note" onClick={() => setActiveQuote((activeQuote + 1) % studioNotes.length)}><Arrow /></button>
             </div>
           </Reveal>
           <div className="quote-container" aria-live="polite">
@@ -385,7 +404,7 @@ function App() {
           <a className="wordmark footer-wordmark" href="#top" aria-label="Rylander Films home"><img className="wordmark-logo" src={logoImage} alt="" /><span className="wordmark-copy is-stacked"><span>RYLANDER</span><span>FILMS</span></span></a>
           <span>WEDDING FILMS & CLIENT STORIES · CHICAGO’S NORTHWEST SUBURBS & BEYOND</span>
           <span>© 2026 RYLANDER FILMS</span>
-          <a className="back-top" href="#top">BACK TO TOP ↑</a>
+          <a className="back-top" href="#top">BACK TO TOP <Arrow direction="up" /></a>
         </div>
       </footer>
     </main>
