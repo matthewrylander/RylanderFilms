@@ -10,7 +10,7 @@ const photos = {
 }
 
 const projects = [
-  { name: 'Grace & Alex Garner 10/10/26', client: 'Wedding film', type: 'Celebration', image: photos.wedding, position: 'center 58%', videoId: '8m2wAzzc4Yw' },
+  { name: 'Grace & Alex Garner 10/10/26', client: 'Wedding film', type: 'Celebration', image: photos.wedding, position: 'center 58%', vimeoId: '1237672221' },
   { name: 'Coming soon...', client: 'Wedding film', type: 'Documentary', image: photos.coast, position: 'center 58%' },
 ]
 
@@ -250,14 +250,14 @@ function App() {
           <div className="work-grid">
             {projects.map((project, index) => (
               <Reveal className={`project-card project-card-${index + 1}`} delay={(index % 2) * 0.1} key={project.name}>
-                {project.videoId ? (
+                {project.vimeoId ? (
                   <div className="project-image-wrap project-video-wrap">
                     <iframe
                       className="project-video"
-                      src={`https://www.youtube-nocookie.com/embed/${project.videoId}?rel=0`}
-                      title={`${project.name} wedding film`}
+                      src={`https://player.vimeo.com/video/${project.vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479`}
+                      title="Grace and Alex 10-10-26 Trailer"
                       loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                       referrerPolicy="strict-origin-when-cross-origin"
                       allowFullScreen
                     />
