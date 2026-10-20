@@ -219,7 +219,6 @@ function App() {
         <div className="page-wrap">
           <Reveal className="section-heading services-heading">
             <div>
-              <p className="eyebrow"><span className="eyebrow-dot" /> MADE FOR PEOPLE, NEVER JUST FOR THE CAMERA</p>
               <h2>What we <em>film.</em></h2>
             </div>
             <p className="heading-note">Wedding days and client stories,<br />captured with intention.</p>
@@ -290,7 +289,6 @@ function App() {
       <section className="process-section section-pad">
         <div className="page-wrap process-layout">
           <Reveal className="process-intro">
-            <p className="eyebrow"><span className="eyebrow-dot" /> HERE FOR THE MOMENT, NEVER IN THE WAY</p>
             <h2>How your day<br />becomes a <em>film.</em></h2>
             <p>We keep the process clear and the camera presence calm, so you can stay close to the people and moments that matter.</p>
             <a className="text-link" href="#contact">Talk through your wedding plans <Arrow diagonal /></a>
